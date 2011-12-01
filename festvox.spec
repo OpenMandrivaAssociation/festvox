@@ -144,7 +144,7 @@ Files shared between the 16kHz and 8kHz Voices
 #Files shared between the 16kHz and 8kHz Voices
 
 %prep
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 #%setup -D -T -c -q -a 100 -a 101 -a 201 -a 202 -a 203 -a 204 -a205
 %setup  -T -c -q -a 200 -a 201 -a 202 -a 203
@@ -157,13 +157,13 @@ rm -rf $RPM_BUILD_ROOT
 #cd ../../..
 
 %install
-mkdir -p $RPM_BUILD_ROOT%_datadir/festival
-cp -a festival/lib/voices $RPM_BUILD_ROOT%_datadir/festival
+mkdir -p %{buildroot}%_datadir/festival
+cp -a festival/lib/voices %{buildroot}%_datadir/festival
 
-rm -f $RPM_BUILD_ROOT/%{_datadir}/festival/voices/english/*/COPYING
+rm -f %{buildroot}/%{_datadir}/festival/voices/english/*/COPYING
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %files kallpc16k
 %defattr(-,root,root)
