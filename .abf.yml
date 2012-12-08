@@ -1,5 +1,5 @@
 sources:
-  "festvox_kallpc16k.tar.bz2:"	ced18752ab45771cbb39fa6f473cb48995ab61b4
-  "festvox_kallpc8k.tar.bz2:"	360103cb304899a80a8b8f41d978906ba5490f3b
-  "festvox_kedlpc16k.tar.bz2:"	0aa5e918b03ec88af99aad00ae5e6679c6a32174
-  "festvox_kedlpc8k.tar.bz2:"	cd3de256ddca5bc58494697d847783fec6b1d26b
+  "festvox_kallpc16k.tar.bz2": ced18752ab45771cbb39fa6f473cb48995ab61b4
+  "festvox_kallpc8k.tar.bz2": 360103cb304899a80a8b8f41d978906ba5490f3b
+  "festvox_kedlpc16k.tar.bz2": 0aa5e918b03ec88af99aad00ae5e6679c6a32174
+  "festvox_kedlpc8k.tar.bz2": cd3de256ddca5bc58494697d847783fec6b1d26b

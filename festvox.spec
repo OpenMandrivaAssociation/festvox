@@ -1,6 +1,6 @@
 %define name festvox
 %define version 1.4.3
-%define release %mkrel 9
+%define release %mkrel 10
 
 Name:  		%name
 Summary: 	Voices for Festival - a free speech synthesizer 
@@ -144,7 +144,7 @@ Files shared between the 16kHz and 8kHz Voices
 #Files shared between the 16kHz and 8kHz Voices
 
 %prep
-rm -rf %{buildroot}
+rm -rf $RPM_BUILD_ROOT
 
 #%setup -D -T -c -q -a 100 -a 101 -a 201 -a 202 -a 203 -a 204 -a205
 %setup  -T -c -q -a 200 -a 201 -a 202 -a 203
@@ -157,13 +157,13 @@ rm -rf %{buildroot}
 #cd ../../..
 
 %install
-mkdir -p %{buildroot}%_datadir/festival
-cp -a festival/lib/voices %{buildroot}%_datadir/festival
+mkdir -p $RPM_BUILD_ROOT%_datadir/festival
+cp -a festival/lib/voices $RPM_BUILD_ROOT%_datadir/festival
 
-rm -f %{buildroot}/%{_datadir}/festival/voices/english/*/COPYING
+rm -f $RPM_BUILD_ROOT/%{_datadir}/festival/voices/english/*/COPYING
 
 %clean
-rm -rf %{buildroot}
+rm -rf $RPM_BUILD_ROOT
 
 %files kallpc16k
 %defattr(-,root,root)
@@ -204,4 +204,50 @@ rm -rf %{buildroot}
 #%doc festival/lib/voices/english/rab_diphone/COPYING
 #%_datadir/festival/voices/english/rab_diphone/festvox/*.scm
 
+
+
+
+%changelog
+* Tue May 03 2011 Oden Eriksson <oeriksson@mandriva.com> 1.4.3-9mdv2011.0
++ Revision: 664302
+- mass rebuild
+
+* Thu Dec 02 2010 Oden Eriksson <oeriksson@mandriva.com> 1.4.3-8mdv2011.0
++ Revision: 605124
+- rebuild
+
+* Tue Mar 16 2010 Oden Eriksson <oeriksson@mandriva.com> 1.4.3-7mdv2010.1
++ Revision: 521123
+- rebuilt for 2010.1
+
+* Wed Sep 02 2009 Christophe Fergeau <cfergeau@mandriva.com> 1.4.3-6mdv2010.0
++ Revision: 424433
+- rebuild
+
+* Tue Jun 17 2008 Thierry Vignaud <tv@mandriva.org> 1.4.3-5mdv2009.0
++ Revision: 220789
+- rebuild
+
+* Sat Jan 12 2008 Thierry Vignaud <tv@mandriva.org> 1.4.3-4mdv2008.1
++ Revision: 149721
+- rebuild
+- kill re-definition of %%buildroot on Pixel's request
+
+  + Olivier Blin <oblin@mandriva.com>
+    - restore BuildRoot
+
+* Fri Aug 17 2007 Thierry Vignaud <tv@mandriva.org> 1.4.3-3mdv2008.0
++ Revision: 64778
+- rebuild
+
+
+* Wed Jan 31 2007 GÃ¶tz Waschk <waschk@mandriva.org> 1.4.3-2mdv2007.0
++ Revision: 115706
+- Import festvox
+
+* Wed Jan 31 2007 Götz Waschk <waschk@mandriva.org> 1.4.3-2mdv2007.1
+- rebuild
+
+* Mon Jan 30 2006 Frederic Crozat <fcrozat@mandriva.com> 1.4.3-2mdk
+- Rebuild
 
