@@ -137,11 +137,7 @@ Files shared between the 16kHz and 8kHz Voices
 #Files shared between the 16kHz and 8kHz Voices
 
 %prep
-rm -rf %{buildroot}
-
-#%setup -D -T -c -q -a 100 -a 101 -a 201 -a 202 -a 203 -a 204 -a205
 %setup  -T -c -q -a 200 -a 201 -a 202 -a 203
-#%patch10
 
 %build
 
