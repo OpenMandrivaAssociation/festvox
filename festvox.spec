@@ -1,17 +1,11 @@
-%define name festvox
-%define version 1.4.3
-%define release %mkrel 10
-
-Name:  		%name
 Summary: 	Voices for Festival - a free speech synthesizer 
-Version: 	%{version}
-Release: 	%release
+Name:  		festvox
+Version: 	1.4.3
+Release: 	10
 License: 	BSD
 Group: 		Sound
-BuildRoot: 	%{_tmppath}/%{name}-%{version}-root 
-URL: 		http://www.cstr.ed.ac.uk/projects/festival/
+Url: 		http://www.cstr.ed.ac.uk/projects/festival/
 BuildArch: 	noarch
-
 ### VOICES
 # American English male speaker (KAL), residual excited LPC diphone database
 Source200: 	ftp://ftp.cstr.ed.ac.uk/pub/festival/%{version}/festvox_kallpc16k.tar.bz2
@@ -110,7 +104,6 @@ Festival Voice - American English male speaker (KED)
 
 Files shared between the 16kHz and 8kHz Voices
 
-
 #%package rablpc16k
 #Group:		Sound
 #Summary:	Festival Voice - British English male speaker (RAB) 16kHz
@@ -144,7 +137,7 @@ Files shared between the 16kHz and 8kHz Voices
 #Files shared between the 16kHz and 8kHz Voices
 
 %prep
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 #%setup -D -T -c -q -a 100 -a 101 -a 201 -a 202 -a 203 -a 204 -a205
 %setup  -T -c -q -a 200 -a 201 -a 202 -a 203
@@ -157,97 +150,38 @@ rm -rf $RPM_BUILD_ROOT
 #cd ../../..
 
 %install
-mkdir -p $RPM_BUILD_ROOT%_datadir/festival
-cp -a festival/lib/voices $RPM_BUILD_ROOT%_datadir/festival
+mkdir -p %{buildroot}%{_datadir}/festival
+cp -a festival/lib/voices %{buildroot}%{_datadir}/festival
 
-rm -f $RPM_BUILD_ROOT/%{_datadir}/festival/voices/english/*/COPYING
-
-%clean
-rm -rf $RPM_BUILD_ROOT
+rm -f %{buildroot}/%{_datadir}/festival/voices/english/*/COPYING
 
 %files kallpc16k
-%defattr(-,root,root)
-%_datadir/festival/voices/english/kal_diphone/group/kallpc16k.group
+%{_datadir}/festival/voices/english/kal_diphone/group/kallpc16k.group
 
 %files kallpc8k
-%defattr(-,root,root)
-%_datadir/festival/voices/english/kal_diphone/group/kallpc8k.group
+%{_datadir}/festival/voices/english/kal_diphone/group/kallpc8k.group
 
 %files kallpc-common
-%defattr(-,root,root)
 %doc festival/lib/voices/english/kal_diphone/COPYING
-%_datadir/festival/voices/english/kal_diphone/festvox/*.scm
+%{_datadir}/festival/voices/english/kal_diphone/festvox/*.scm
 
 %files kedlpc16k
-%defattr(-,root,root)
-%_datadir/festival/voices/english/ked_diphone/group/kedlpc16k.group
+%{_datadir}/festival/voices/english/ked_diphone/group/kedlpc16k.group
 
 %files kedlpc8k
-%defattr(-,root,root)
-%_datadir/festival/voices/english/ked_diphone/group/kedlpc8k.group
+%{_datadir}/festival/voices/english/ked_diphone/group/kedlpc8k.group
 
 %files kedlpc-common
-%defattr(-,root,root)
 %doc festival/lib/voices/english/ked_diphone/COPYING
-%_datadir/festival/voices/english/ked_diphone/festvox/*.scm
+%{_datadir}/festival/voices/english/ked_diphone/festvox/*.scm
 
 #%files rablpc16k
-#%defattr(-,root,root)
-#%_datadir/festival/voices/english/rab_diphone/group/rablpc16k.group
+#%{_datadir}/festival/voices/english/rab_diphone/group/rablpc16k.group
 
 #%files rablpc8k
-#%defattr(-,root,root)
-#%_datadir/festival/voices/english/rab_diphone/group/rablpc8k.group
+#%{_datadir}/festival/voices/english/rab_diphone/group/rablpc8k.group
 
 #%files rablpc-common
-#%defattr(-,root,root)
 #%doc festival/lib/voices/english/rab_diphone/COPYING
-#%_datadir/festival/voices/english/rab_diphone/festvox/*.scm
-
-
-
-
-%changelog
-* Tue May 03 2011 Oden Eriksson <oeriksson@mandriva.com> 1.4.3-9mdv2011.0
-+ Revision: 664302
-- mass rebuild
-
-* Thu Dec 02 2010 Oden Eriksson <oeriksson@mandriva.com> 1.4.3-8mdv2011.0
-+ Revision: 605124
-- rebuild
-
-* Tue Mar 16 2010 Oden Eriksson <oeriksson@mandriva.com> 1.4.3-7mdv2010.1
-+ Revision: 521123
-- rebuilt for 2010.1
-
-* Wed Sep 02 2009 Christophe Fergeau <cfergeau@mandriva.com> 1.4.3-6mdv2010.0
-+ Revision: 424433
-- rebuild
-
-* Tue Jun 17 2008 Thierry Vignaud <tv@mandriva.org> 1.4.3-5mdv2009.0
-+ Revision: 220789
-- rebuild
-
-* Sat Jan 12 2008 Thierry Vignaud <tv@mandriva.org> 1.4.3-4mdv2008.1
-+ Revision: 149721
-- rebuild
-- kill re-definition of %%buildroot on Pixel's request
-
-  + Olivier Blin <oblin@mandriva.com>
-    - restore BuildRoot
-
-* Fri Aug 17 2007 Thierry Vignaud <tv@mandriva.org> 1.4.3-3mdv2008.0
-+ Revision: 64778
-- rebuild
-
-
-* Wed Jan 31 2007 GÃ¶tz Waschk <waschk@mandriva.org> 1.4.3-2mdv2007.0
-+ Revision: 115706
-- Import festvox
-
-* Wed Jan 31 2007 Götz Waschk <waschk@mandriva.org> 1.4.3-2mdv2007.1
-- rebuild
-
-* Mon Jan 30 2006 Frederic Crozat <fcrozat@mandriva.com> 1.4.3-2mdk
-- Rebuild
+#%{_datadir}/festival/voices/english/rab_diphone/festvox/*.scm
 
