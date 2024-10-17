@@ -4,7 +4,7 @@ Version: 	1.4.3
 Release: 	21
 License: 	BSD
 Group: 		Sound
-Url: 		http://www.cstr.ed.ac.uk/projects/festival/
+Url: 		https://www.cstr.ed.ac.uk/projects/festival/
 BuildArch: 	noarch
 ### VOICES
 # American English male speaker (KAL), residual excited LPC diphone database
